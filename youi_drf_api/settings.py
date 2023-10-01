@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "cloudinary",
     "rest_framework",
     "django_filters",
+    "taggit",
     "profiles",
 ]
 
