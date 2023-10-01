@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "taggit",
     "profiles",
     "posts",
+    "events",
 ]
 
 MIDDLEWARE = [
