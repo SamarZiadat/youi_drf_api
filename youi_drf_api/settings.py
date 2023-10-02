@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "posts",
     "events",
     "comments",
+    "reviews",
 ]
 
 MIDDLEWARE = [
