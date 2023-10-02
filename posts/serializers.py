@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from taggit.serializers import TagListSerializerField, TaggitSerializer
+from likes.models import Like
 
 
 class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
@@ -15,6 +16,7 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(
         source="owner.profile.profile_picture.url"
     )
+    like_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -29,6 +31,13 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
         request = self.context["request"]
         return request.user == obj.owner
 
+    def get_like_id(self, obj):
+        user = self.context["request"].user
+        if user.is_authenticated:
+            like = Like.objects.filter(owner=user, post=obj).first()
+            return like.id if like else None
+        return None
+
     class Meta:
         model = Post
         fields = [
@@ -42,4 +51,5 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
             "content",
             "tags",
             "image",
+            "like_id",
         ]
