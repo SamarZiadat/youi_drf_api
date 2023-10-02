@@ -32,7 +32,7 @@ class EventDetailViewTests(APITestCase):
 
     def setUp(self):
         samar = User.objects.create_user(username="samar", password="letmein")
-        greg = User.objects.create_user(username="greg", password="pass")
+        charlotte = User.objects.create_user(username="charlotte", password="pass")
         Event.objects.create(
             owner=samar,
             title="a title",
@@ -41,9 +41,9 @@ class EventDetailViewTests(APITestCase):
             event_date="2024-04-01",
         )
         Event.objects.create(
-            owner=greg,
+            owner=charlotte,
             title="another title",
-            description="greg's content",
+            description="charlotte's content",
             tags="tag",
             event_date="2025-04-01",
         )

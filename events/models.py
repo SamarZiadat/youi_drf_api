@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import *
+from datetime import date
 from taggit.managers import TaggableManager
 
 EVENT_CATEGORIES = (
