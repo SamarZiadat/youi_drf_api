@@ -14,6 +14,8 @@ class EventSerializer(TaggitSerializer, serializers.ModelSerializer):
         source="owner.profile.profile_picture.url"
     )
     bookmark_id = serializers.SerializerMethodField()
+    bookmarks_count = serializers.ReadOnlyField()
+    reviews_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -53,4 +55,6 @@ class EventSerializer(TaggitSerializer, serializers.ModelSerializer):
             "format",
             "image",
             "bookmark_id",
+            "bookmarks_count",
+            "reviews_count",
         ]
