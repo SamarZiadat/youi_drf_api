@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Event
 from django.utils.dateformat import format
 from taggit.serializers import TagListSerializerField, TaggitSerializer
+from bookmarks.models import Bookmark
 
 
 class EventSerializer(TaggitSerializer, serializers.ModelSerializer):
@@ -12,6 +13,7 @@ class EventSerializer(TaggitSerializer, serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(
         source="owner.profile.profile_picture.url"
     )
+    bookmark_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -25,6 +27,13 @@ class EventSerializer(TaggitSerializer, serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context["request"]
         return request.user == obj.owner
+
+    def get_bookmark_id(self, obj):
+        user = self.context["request"].user
+        if user.is_authenticated:
+            bookmark = Bookmark.objects.filter(owner=user, event=obj).first()
+            return bookmark.id if bookmark else None
+        return None
 
     class Meta:
         model = Event
@@ -43,4 +52,5 @@ class EventSerializer(TaggitSerializer, serializers.ModelSerializer):
             "category",
             "format",
             "image",
+            "bookmark_id",
         ]
