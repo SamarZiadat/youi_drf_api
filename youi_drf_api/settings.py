@@ -59,7 +59,11 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "you-i-3061caaa8a51.herokuapp.com"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "you-i-4450f0dac315.herokuapp.com",
+    "8000-samarziadat-youidrfapi-ppfpffzgbhy.ws-eu105.gitpod.io",
+]
 
 
 # Application definition
