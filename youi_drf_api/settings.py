@@ -61,7 +61,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
-    "you-i-4450f0dac315.herokuapp.com",
+    "youi-backend-25262e22ef8b.herokuapp.com",
     "8000-samarziadat-youidrfapi-ppfpffzgbhy.ws-eu105.gitpod.io",
 ]
 
