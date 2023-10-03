@@ -63,6 +63,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     os.environ.get("ALLOWED_HOST"),
     "localhost",
+    "8000-samarziadat-youidrfapi-ppfpffzgbhy.ws-eu105.gitpod.io",
 ]
 
 # Application definition
