@@ -65,7 +65,6 @@ ALLOWED_HOSTS = [
     "8000-samarziadat-youidrfapi-ppfpffzgbhy.ws-eu105.gitpod.io",
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
