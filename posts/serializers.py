@@ -4,7 +4,7 @@ from likes.models import Like
 from taggit.serializers import TagListSerializerField, TaggitSerializer
 
 
-class PostSerializer(serializers.ModelSerializer):
+class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
