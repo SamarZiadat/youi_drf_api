@@ -1,12 +1,14 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from taggit.serializers import TagListSerializerField, TaggitSerializer
 
 
 class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
+    tags = TagListSerializerField()
     profile_image = serializers.ReadOnlyField(source="owner.profile.image.url")
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
@@ -44,6 +46,7 @@ class PostSerializer(serializers.ModelSerializer):
             "updated_at",
             "content",
             "image",
+            "tags",
             "like_id",
             "likes_count",
             "comments_count",
