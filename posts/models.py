@@ -13,7 +13,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField(blank=False)
-    tags = TaggableManager(blank=False)
+    tags = TaggableManager(blank=True)
     image = models.ImageField(
         upload_to="images/", default="../default_post_e675n6", blank=True
     )
