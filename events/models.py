@@ -33,10 +33,8 @@ class Event(models.Model):
     description = models.TextField(blank=False)
     event_date = models.DateField(blank=False)
     tags = TaggableManager(blank=True)
-    category = models.CharField(
-        max_length=50, choices=EVENT_CATEGORIES, default="Conference"
-    )
-    format = models.CharField(max_length=50, choices=EVENT_FORMATS, default="In person")
+    category = models.CharField(max_length=50, choices=EVENT_CATEGORIES, default="n/a")
+    format = models.CharField(max_length=50, choices=EVENT_FORMATS, default="n/a")
     image = models.ImageField(
         upload_to="images/", default="../default_post_e675n6", blank=False
     )
