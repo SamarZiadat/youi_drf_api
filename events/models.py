@@ -30,7 +30,7 @@ class Event(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
+    description = models.TextField(blank=False)
     event_date = models.DateField(blank=False)
     tags = TaggableManager(blank=True)
     category = models.CharField(
@@ -38,7 +38,7 @@ class Event(models.Model):
     )
     format = models.CharField(max_length=50, choices=EVENT_FORMATS, default="In person")
     image = models.ImageField(
-        upload_to="images/", default="../default_post_e675n6", blank=True
+        upload_to="images/", default="../default_post_e675n6", blank=False
     )
 
     class Meta:
