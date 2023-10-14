@@ -7,7 +7,7 @@ RATINGS = (
     ("4 stars", "4 stars"),
     ("3 stars", "3 stars"),
     ("2 stars", "2 stars"),
-    ("1 stars", "1 stars"),
+    ("1 star", "1 star"),
     ("0 stars", "0 stars"),
 )
 
