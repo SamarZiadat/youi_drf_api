@@ -3,12 +3,12 @@ from django.contrib.auth.models import User
 from events.models import Event
 
 RATINGS = (
-    ("5/5", "5/5"),
-    ("4/5", "4/5"),
-    ("3/5", "3/5"),
-    ("2/5", "2/5"),
-    ("1/5", "1/5"),
-    ("0/5", "0/5"),
+    ("5 stars", "5 stars"),
+    ("4 stars", "4 stars"),
+    ("3 stars", "3 stars"),
+    ("2 stars", "2 stars"),
+    ("1 stars", "1 stars"),
+    ("0 stars", "0 stars"),
 )
 
 
