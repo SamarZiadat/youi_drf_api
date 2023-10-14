@@ -21,7 +21,7 @@ class Review(models.Model):
     event = models.ForeignKey(Event, related_name="reviews", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    rating = models.CharField(max_length=50, choices=RATINGS, default="5/5")
+    rating = models.CharField(max_length=50, choices=RATINGS, default="5 stars")
     review = models.TextField()
 
     class Meta:
