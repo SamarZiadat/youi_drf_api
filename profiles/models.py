@@ -14,9 +14,6 @@ class Profile(models.Model):
     job_title = models.CharField(max_length=255, blank=True)
     current_employer = models.CharField(max_length=255, blank=True)
     about = models.TextField(blank=True)
-    work_experience = models.TextField(blank=True)
-    education = models.TextField(blank=True)
-    certifications = models.TextField(blank=True)
     profile_picture = models.ImageField(upload_to="images/", default="../user_q6u7m3")
 
     class Meta:
