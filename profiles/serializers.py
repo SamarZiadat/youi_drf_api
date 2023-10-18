@@ -31,7 +31,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             "owner",
             "created_at",
             "updated_at",
-            "name",
             "location",
             "job_title",
             "current_employer",
