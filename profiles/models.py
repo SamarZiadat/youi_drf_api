@@ -10,7 +10,6 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255, blank=True)
     location = models.CharField(max_length=255, blank=True)
-    portfolio_url = models.URLField(max_length=255, blank=True)
     job_title = models.CharField(max_length=255, blank=True)
     current_employer = models.CharField(max_length=255, blank=True)
     about = models.TextField(blank=True)

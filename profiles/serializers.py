@@ -33,7 +33,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             "updated_at",
             "name",
             "location",
-            "portfolio_url",
             "job_title",
             "current_employer",
             "about",
