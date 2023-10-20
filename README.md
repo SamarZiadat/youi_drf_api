@@ -17,7 +17,7 @@ View the live API [here](https://youi-backend-25262e22ef8b.herokuapp.com/).
   - [Features](https://github.com/SamarZiadat/youi_drf_api#features)
 - [The Skeleton Plane](https://github.com/SamarZiadat/youi_drf_api#the-skeleton-plane)
   - [Database Design](https://github.com/SamarZiadat/youi_drf_api#database-design)
-- [Technologies](https://github.com/SamarZiadat/youi_drf_api#technologies)
+- [Technologies](https://github.com/SamarZiadat/youi_drf_api#technologies-used)
 - [Testing](https://github.com/SamarZiadat/youi_drf_api#testing)
 - [Deployment](https://github.com/SamarZiadat/youi_drf_api#deployment)
 - [Credits](https://github.com/SamarZiadat/youi_drf_api#heroku-credits)
@@ -49,7 +49,7 @@ This project was managed using agile methodologies by delivering small features 
 - As a developer/superuser I can edit a post that I created so that I can amend any missing or incorrect information on the post
 - As a developer/superuser I can delete a post that I created so that I can delete post data from the API
 
-**Posts**
+**Events**
 
 - As a developer/superuser I can view a list of all events so that I can see all events at once
 - As a developer/superuser I can view a single event so that I can see single event details, including reviews
@@ -317,6 +317,10 @@ Notes on the ER diagram:
 
 - The ER diagram provided shows the logical data model.
 - The Users table in the ER diagrams is also a logical representation of the data captured during user registration and how it relates to the application data model. The Users table itself is not declared in a models.py file, but is handled by the django modules and this logical view does not reflect all columns and constraints etc. used by the physical data tables in the database.
+
+## Testing
+
+Please click [here](https://github.com/SamarZiadat/youi_drf_api/blob/main/TESTING.md) to read more information about testing you.i API.
 
 ## Technologies Used
 
