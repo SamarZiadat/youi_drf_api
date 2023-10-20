@@ -10,17 +10,17 @@ View the live API [here](https://youi-backend-25262e22ef8b.herokuapp.com/).
 
 ## Table of Contents
 
-- [The Strategy Plane](https://github.com/SamarZiadat/you.i#the-strategy-plane)
-  - [Agile Project Management](https://github.com/SamarZiadat/you.i#agile-project-management)
-  -      [Developer User Stories](https://github.com/SamarZiadat/you.i#developer-user-stories)
-- [The Structure Plane](https://github.com/SamarZiadat/you.i#the-structure-plane)
-  - [Features](https://github.com/SamarZiadat/you.i#features)
-- [The Skeleton Plane](https://github.com/SamarZiadat/you.i#the-skeleton-plane)
-  - [Database Design](https://github.com/SamarZiadat/you.i#database-design)
-- [Technologies](https://github.com/SamarZiadat/you.i#technologies)
-- [Testing](https://github.com/SamarZiadat/you.i#testing)
-- [Deployment](https://github.com/SamarZiadat/you.i#deployment)
-- [Credits](https://github.com/SamarZiadat/you.i#heroku-credits)
+- [The Strategy Plane](https://github.com/SamarZiadat/youi_drf_api#the-strategy-plane)
+  - [Agile Project Management](https://github.com/SamarZiadat/youi_drf_api#agile-project-management)
+  - [Developer User Stories](https://github.com/SamarZiadat/youi_drf_api#developer-user-stories)
+- [The Structure Plane](https://github.com/SamarZiadat/youi_drf_api#the-structure-plane)
+  - [Features](https://github.com/SamarZiadat/youi_drf_api#features)
+- [The Skeleton Plane](https://github.com/SamarZiadat/youi_drf_api#the-skeleton-plane)
+  - [Database Design](https://github.com/SamarZiadat/youi_drf_api#database-design)
+- [Technologies](https://github.com/SamarZiadat/youi_drf_api#technologies)
+- [Testing](https://github.com/SamarZiadat/youi_drf_api#testing)
+- [Deployment](https://github.com/SamarZiadat/youi_drf_api#deployment)
+- [Credits](https://github.com/SamarZiadat/youi_drf_api#heroku-credits)
 
 ## The Strategy Plane
 
@@ -41,13 +41,21 @@ This project was managed using agile methodologies by delivering small features 
 - As a developer/superuser I can edit a profile when I am logged in so that update my personal information
 - As a developer/superuser I can delete a profile that I own so that I can delete my user account from the API
 
-**Events and Posts**
+**Posts**
 
-- As a developer/superuser I can view a list of all events/posts so that I can see all events/posts at once
-- As a developer/superuser I can view a single event/post so that I can see single event/post details, including comments
-- As a developer/superuser I can create a new event/post so that this event/post will be displayed in the events/posts list
-- As a developer/superuser I can edit an event/post that I created so that I can amend any missing or incorrect information on the event/post
-- As a developer/superuser I can delete an event/post which I created so that I can delete event/post data from the API
+- As a developer/superuser I can view a list of all posts so that I can see all posts at once
+- As a developer/superuser I can view a single post so that I can see single post details, including comments
+- As a developer/superuser I can create a new post so that this post will be displayed in the posts list
+- As a developer/superuser I can edit a post that I created so that I can amend any missing or incorrect information on the post
+- As a developer/superuser I can delete a post that I created so that I can delete post data from the API
+
+**Posts**
+
+- As a developer/superuser I can view a list of all events so that I can see all events at once
+- As a developer/superuser I can view a single event so that I can see single event details, including reviews
+- As a developer/superuser I can create a new event so that this event will be displayed in the events list
+- As a developer/superuser I can edit an event that I created so that I can amend any missing or incorrect information on the event
+- As a developer/superuser I can delete an event which I created so that I can delete event data from the API
 
 **Comments**
 
@@ -61,6 +69,7 @@ This project was managed using agile methodologies by delivering small features 
 
 - As a developer/superuser I can create a review so that I can link a review and rating to an event
 - As a developer/superuser I can view a list of all reviews so that I can see all reviews created in the API
+- As a developer/superuser I can retrieve a single review by ID so that I can edit or delete this comment
 - As a developer/superuser I can edit a review that I created so that I can amend any missing or incorrect information
 - As a developer/superuser I can delete a review which I created so that I can delete review data from the API
 
@@ -89,6 +98,7 @@ This project was managed using agile methodologies by delivering small features 
 - As a developer/superuser I can see a search field in the events and posts list so that I can search for a specific event or post
 - As a developer/superuser I can filter the events list by category so that I can see only the events relating to one desired category
 - As a developer/superuser I can view a list of events/posts by profiles I follow so that I can see only the events/posts relating to profiles that I like
+- As a developer/superuser I can view a list of posts I have posted a like id to so that I can see only the posts I like
 - As a developer/superuser I can view a list of events I have posted a bookmarked id to so that I can see only the events I am interested in attending
 - As a developer/superuser I can view a list of events/posts relating to just one profile so that I can see only the events/posts created by a single user
 - As a developer/superuser I can view a list of comments linked to a particular post so that I can see see the comments relating to one single post id
@@ -269,6 +279,18 @@ If a user tries to bookmark the same event twice, they see an error message sayi
 
 Once logged in, if the user views the details of a single bookmark which they created, additional Delete functionality becomes available. It is not possible to Edit a bookmark.
 
+### Followers Data
+
+Within the Follower List section, a user can view a list of all follower posts in the API.
+
+![Followers list](https://res.cloudinary.com/ddsrnz9la/image/upload/v1697809133/followers_ilnynw.png)
+
+If the user logs in, a form becomes visible to create a new follower post. The user they want to follow can be selected to link the follower post with another user profile.
+
+If a user tries to follow the same profile twice, they see an error message saying that they are already following the selected profile, and the duplicate follow post is not created.
+
+Once logged in, if the user views the details of a single follower post which they created additional Delete functionality becomes available. It is not possible to Edit a follower post.
+
 ## The Skeleton Plane
 
 ### Database Design
@@ -289,7 +311,7 @@ I have created the following models for the You.I Backend API:
 
 The relationships between all of these models is summarised in the followed entity relationship diagram:
 
-![Entity relationship diagram]([https://res.cloudinary.com/ddsrnz9la/image/upload/v1697808126/erd_nn2x92.png](https://res.cloudinary.com/ddsrnz9la/image/upload/v1697808126/erd_nn2x92.png)
+![Entity relationship diagram](https://res.cloudinary.com/ddsrnz9la/image/upload/v1697808126/erd_nn2x92.png)
 
 Notes on the ER diagram:
 
@@ -474,3 +496,7 @@ To clone and set up this project you need to follow the steps below.
 - The default profile picture image was sourced from [Vecteezy](https://www.vecteezy.com/)
 - I read about [Django Taggit](https://django-taggit.readthedocs.io/en/latest/api.html) before implementing this library into my events and posts apps
 - I also read this [dev.to](https://dev.to/tikam02/how-to-implement-django-search-field-and-tags-keywords-286a) blog on how to use tag fields effectively in a keyword search bar
+
+## Acknowledgments
+
+- My mentor at Code Institute, Adeye Adegbenga, for code review, help and feedback. Very much appreciated!
