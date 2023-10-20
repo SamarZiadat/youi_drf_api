@@ -15,9 +15,9 @@ The you.i API has been developed with the [pylint](https://pylint.pycqa.org/en/l
 
 ### Automated Testing
 
-Automated tests have been written into the you.i API, in order to cover all the user story scenarios. Automated tests that were created for the posts, events, comments, reviews, likes, bookmarks and profiles apps:
+20 automated tests have been written into the you.i API to test user story scenarios. Automated tests were created to cover the following apps: posts, events, comments, reviews, likes, bookmarks and profiles.
 
-
+![Automated testing](https://res.cloudinary.com/ddsrnz9la/image/upload/v1697818524/Screenshot_2023-10-20_at_17.10.08_jabzqk.png)
 
 ### Manual Testing
 I carried out the following additional manual tests:
@@ -83,4 +83,3 @@ I carried out the following additional manual tests:
 **Reviews**
 
 ✓ Review List can be filtered by event
-
