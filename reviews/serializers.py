@@ -1,7 +1,7 @@
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
-from .models import Review
 from django.db import IntegrityError
+from .models import Review
 
 
 class ReviewSerializer(serializers.ModelSerializer):

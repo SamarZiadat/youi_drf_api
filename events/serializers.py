@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Event
-from django.utils.dateformat import format
 from taggit.serializers import TagListSerializerField, TaggitSerializer
+from django.utils.dateformat import format
 from bookmarks.models import Bookmark
+from .models import Event
 
 
 class EventSerializer(TaggitSerializer, serializers.ModelSerializer):

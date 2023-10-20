@@ -1,7 +1,7 @@
 from rest_framework import serializers
+from taggit.serializers import TagListSerializerField, TaggitSerializer
 from posts.models import Post
 from likes.models import Like
-from taggit.serializers import TagListSerializerField, TaggitSerializer
 
 
 class PostSerializer(TaggitSerializer, serializers.ModelSerializer):

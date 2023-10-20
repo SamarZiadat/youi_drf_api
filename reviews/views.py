@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions
+from django_filters.rest_framework import DjangoFilterBackend
 from youi_drf_api.permissions import IsOwnerOrReadOnly
 from .models import Review
 from .serializers import ReviewSerializer, ReviewDetailSerializer
-from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ReviewList(generics.ListCreateAPIView):
