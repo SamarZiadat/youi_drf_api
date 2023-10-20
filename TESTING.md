@@ -13,13 +13,13 @@
 
 The you.i API has been developed with the [pylint](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html) and [black](https://black.readthedocs.io/en/stable/) GitPod extensions that provide formatting, linting and internal PEP8 validation tests. No problems or warnings were found at the end of the project.
 
-#### Automated Testing
+### Automated Testing
 
 Automated tests have been written into the you.i API, in order to cover all the user story scenarios. Automated tests that were created for the posts, events, comments, reviews, likes, bookmarks and profiles apps:
 
 
 
-#### Manual Testing
+### Manual Testing
 I carried out the following additional manual tests:
 
 **Profiles**
