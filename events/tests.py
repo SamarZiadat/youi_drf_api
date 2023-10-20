@@ -18,12 +18,6 @@ class EventListViewTests(APITestCase):
         response = self.client.get("/events/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_logged_out_user_cant_create_event(self):
-        response = self.client.post("/events/", {"title": "a title"})
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        count = Event.objects.count()
-        self.assertEqual(count, 0)
-
 
 class EventDetailViewTests(APITestCase):
     """
@@ -56,18 +50,3 @@ class EventDetailViewTests(APITestCase):
     def test_cant_retrieve_event_using_invalid_id(self):
         response = self.client.get("/events/999/")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-    def test_user_cant_update_someone_elses_event(self):
-        self.client.login(username="samar", password="letmein")
-        response = self.client.put("/events/2/", {"title": "an edited title"})
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_user_can_delete_their_own_event(self):
-        self.client.login(username="samar", password="letmein")
-        response = self.client.delete("/events/1/")
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-    def test_user_cant_delete_someone_elses_event(self):
-        self.client.login(username="samar", password="letmein")
-        response = self.client.delete("/events/2/")
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

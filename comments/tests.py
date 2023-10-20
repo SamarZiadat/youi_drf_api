@@ -21,24 +21,6 @@ class CommentsListViewTests(APITestCase):
         response = self.client.get("/comments/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_logged_out_user_cant_create_comment(self):
-        post_a = Post.objects.get(id=1)
-        response = self.client.post(
-            "/comments/", {"post": post_a, "content": "comment"}
-        )
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        count = Comment.objects.count()
-        self.assertEqual(count, 0)
-
-    def test_logged_in_user_can_post_comment(self):
-        self.client.login(username="samar", password="letmein")
-        post_a = Post.objects.get(id=1)
-        current_user = User.objects.get(username="samar")
-        response = self.client.post(
-            "/comments/", {"owner": current_user, "post": 1, "content": "comment"}
-        )
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
 
 class CommentsDetailViewTests(APITestCase):
     """

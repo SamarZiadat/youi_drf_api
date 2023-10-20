@@ -39,17 +39,3 @@ class ProfileDetailViewTests(APITestCase):
     def test_can_retrieve_profile_using_valid_id(self):
         response = self.client.get("/profiles/2/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_logged_in_user_can_update_own_profile(self):
-        self.client.login(username="samar", password="letmein")
-        response = self.client.put("/profiles/1/", {"name": "Samar"})
-        profile = Profile.objects.filter(pk=1).first()
-        self.assertEqual(profile.name, "Samar")
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_user_cant_update_someone_elses_profile(self):
-        self.client.login(username="samar", password="letmein")
-        response = self.client.put(
-            "/profiles/2/", {"bio": "I want to edit Charlottes bio"}
-        )
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

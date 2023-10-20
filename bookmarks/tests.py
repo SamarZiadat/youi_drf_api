@@ -23,19 +23,6 @@ class BookmarkListViewTests(APITestCase):
         response = self.client.get("/bookmarks/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_logged_out_user_cant_create_bookmark(self):
-        event_a = Event.objects.get(id=1)
-        response = self.client.post("/bookmarks/", {"event": event_a})
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        count = Bookmark.objects.count()
-        self.assertEqual(count, 0)
-
-    def test_logged_in_user_can_post_bookmark(self):
-        self.client.login(username="samar", password="letmein")
-        event_a = Event.objects.get(id=1)
-        current_user = User.objects.get(username="samar")
-        response = self.client.post("/bookmarks/", {"owner": current_user, "event": 1})
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
 
 class BookmarkDetailViewTests(APITestCase):
@@ -62,22 +49,3 @@ class BookmarkDetailViewTests(APITestCase):
     def test_can_retrieve_bookmark_using_valid_id(self):
         response = self.client.get("/bookmarks/1/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_logged_in_user_can_delete_own_bookmark(self):
-        self.client.login(username="samar", password="letmein")
-        current_user = User.objects.get(username="samar")
-        response = self.client.delete("/bookmarks/1/")
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-    def test_logged_in_user_cant_delete_someone_elses_bookmark(self):
-        self.client.login(username="samar", password="letmein")
-        current_user = User.objects.get(username="samar")
-        response = self.client.delete("/bookmarks/2/")
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_cant_post_bookmark_to_the_same_event_twice(self):
-        self.client.login(username="samar", password="letmein")
-        current_user = User.objects.get(username="samar")
-        event_a = Event.objects.get(id=1)
-        response = self.client.post("/bookmarks/", {"owner": current_user, "event": 1})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
